@@ -1,0 +1,108 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <!-- <meta name="viewport" id="viewport" content="width=device-width, initial-scale=0.5, minimum-scale=0.5, maximum-scale=0.5, user-scalable=0" /> -->
+  <!-- <script src="http://www.bootstrapmb.com/content/js/jquery.min.js"></script> -->
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" name="viewport" id="viewport"/>
+  <script src="js/money.js"></script>
+  <script src="js/pen.js"></script>
+  <script src="js/body.js"></script>
+  <script src="js/requestNextAnimationFrame.js"></script>
+  <link href="css/msjbp.css" rel="stylesheet" />
+  <title>HTML5手机触屏接红包代码</title>
+
+</head>
+
+<body>
+  <script type="text/javascript">
+    // function set_meta() {
+    //   var body_width = document.documentElement.clientWidth;
+    //   var get_scale = (body_width / 2) / 640;
+    //   var get_content = "width=device-width, initial-scale=" + get_scale + ", minimum-scale=" + get_scale + ", maximum-scale=" + get_scale + ", user-scalable=0";
+    //   document.getElementById("viewport").setAttribute('content', get_content);
+    // }
+    // set_meta();
+  </script>
+
+
+  <canvas width="375" height="667" id="canvas"></canvas>
+
+  <div class="tim_dsq" id="clock"></div>
+  <script>
+
+    let _redPack = {
+      canvas: null,
+      context: null,
+      canvasWidth: 0,
+      canvasHeight: 0,
+      isEnd: false,
+      five_num_left: 0,
+      ten_num_left: 0,
+      empty_num_left: 0,
+      five_num: 0,
+      ten_num: 0,
+      empty_num: 0,
+      zad_num: 0,
+      score: 0,
+      body: null,
+      dropLeft: 0,
+      rainCount: 0
+    };
+
+
+    function animate() {
+      let self = this;
+      _redPack.body.clear();
+      _redPack.body.draw();
+      // 同步点击数量
+      _redPack.rainCount = _redPack.five_num;
+      if (!_redPack.isEnd) {
+        window.requestNextAnimationFrame(animate);
+      }
+    }
+    
+    function init(){
+      _redPack = {
+        canvas: document.getElementById('canvas'),
+        context: document.getElementById('canvas').getContext('2d'),
+        canvasWidth: (document.body.clientWidth || document.body.scrollWidth || 375),
+        canvasHeight: (document.body.clientHeight || document.body.scrollHeight || 667),
+        isEnd: false,
+        five_num_left: 0,
+        ten_num_left: 0,
+        empty_num_left: 0,
+        five_num: 0,
+        ten_num: 0,
+        empty_num: 0,
+        zad_num: 0,
+        score: 0,
+        body: null,
+        dropLeft: 0,
+        rainCount: 0
+      };
+      _redPack.body = new Body();
+      timedCount();
+      window.requestNextAnimationFrame(animate);
+    }
+
+    // 判断页面正真加载完成
+    document.onreadystatechange = init();
+
+
+    var time = 10;
+    var clock;
+    function timedCount() {
+      // $("#clock").html(time + "秒");
+      if (time <= 0) {
+        clearTimeout(clock);
+        this.isEnd = true;
+      } else {
+        time = time - 1;
+        clock = setTimeout(timedCount, 1000);
+      }
+    }
+  </script>
+</body>
+</html>

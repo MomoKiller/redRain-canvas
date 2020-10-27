@@ -1,0 +1,43 @@
+html,body{height:100%;width:100%;}
+/* *{padding:0px;margin:0px;font-family:"微软雅黑";font-size:100%; font-style:normal} */
+*{padding:0px;margin:0px;font-family:"微软雅黑";font-size:10px; font-style:normal}
+dd,dl,dt,em,i,p,textarea,a,div{padding:0px;margin:0px;}
+a:link,a:visited{text-decoration:none;color:#fff}
+a:hover,a:active{text-decoration:none;color:#fff}
+img{border:0px;}
+ul,li{padding:0px;margin:0px;list-style:none;}
+.fl{ float:left}
+.fr{ float:right}
+
+
+/* .msjbp_sy{width:640px; height:1039px;background:#ffee97;} */
+
+/* #canvas{width:640px; height:1039px;background:#ffee97;} */
+
+.msjbp_sy{
+  width:100%; 
+  height:100%;
+  /* background:#ffee97; */
+  background: linear-gradient(180deg, #2C26AA 0%, #940391 100%);
+}
+
+#canvas{
+  width:100%; 
+  height:100%;
+  /* background:#ffee97; */
+  background: linear-gradient(180deg, #2C26AA 0%, #940391 100%);
+}
+
+.tim_dsq{width:116px; height:44px;position:absolute; right:0px;top:27px;  text-indent:40px; color:#000; font-size:21px; line-height:35px;}
+
+
+
+
+
+
+
+
+
+
+
+
