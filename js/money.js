@@ -58,8 +58,8 @@
   }
   money.prototype.draw = function () {
     if (this.status == 0) {
-      // _redPack.context.drawImage(moneyEnum[this.type].image, this.x, this.y, moneyEnum[this.type].widths, moneyEnum[this.type].heights);
-      _redPack.context.drawImage(moneyEnum[this.type].image, this.x, this.y, moneyEnum[this.type].widths * (375 / _redPack.canvasWidth), moneyEnum[this.type].heights * (667 / _redPack.canvasHeight));
+      _redPack.context.drawImage(moneyEnum[this.type].image, this.x, this.y, moneyEnum[this.type].widths, moneyEnum[this.type].heights);
+      // _redPack.context.drawImage(moneyEnum[this.type].image, this.x, this.y, moneyEnum[this.type].widths * (375 / _redPack.canvasWidth), moneyEnum[this.type].heights * (667 / _redPack.canvasHeight));
     }
     else if (this.status == 1) {     // 接住的红包
       if (this.tmpWidth < this.widths * 0.4) {
@@ -92,14 +92,15 @@
       && _redPack.body.mainpen.x > this.x
       && _redPack.body.mainpen.x < this.x + this.widths) {//
       this.status = 1;
-      _redPack.score += moneyEnum[this.type].value;  //记录总分数
-      _redPack.five_num += 1;                        // 红包个数
+      // _redPack.score += moneyEnum[this.type].value;  //记录总分数
+      // _redPack.five_num += 1;                        // 红包个数
       // link.playGoldRing();        // 声音
       if (this.stayY == 0) {      // 第一次点击保留 Y 坐标
         this.stayY = this.y;
       }
-    } else if (this.y >= 1039) {
-      this.status = 2;
+    // } else if (this.y >= 1039) {
+    } else if (this.y >= _redPack.canvasHeight) {
+      // this.status = 2;
     }
     this.draw();
   }

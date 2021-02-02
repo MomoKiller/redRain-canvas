@@ -20,25 +20,25 @@
     }
     var addInterval = setInterval(function () {
       if (!_redPack.isEnd) {
-        // self.addMoney(Math.random() * _redPack.canvasWidth - 90);
-        _redPack.dropLeft = Math.ceil(Math.random() * 3);
-        switch (_redPack.dropLeft) {
-          case 0:
-            self.addMoney(Math.random() * 40 + _redPack.canvasWidth / 8);
-            break;
-          case 1:
-            self.addMoney(Math.random() * 40 + _redPack.canvasWidth / 8);
-            break;
-          case 2:
-            self.addMoney(Math.random() * 40 + _redPack.canvasWidth / 8 * 5);
-            break;
-          case 3:
-            self.addMoney(Math.random() * (_redPack.canvasWidth - 90));
-            break;
-          default:
-            self.addMoney(Math.random() * 40 + _redPack.canvasWidth / 8 * 5);
-            break;
-        }
+        self.addMoney(Math.random() * (_redPack.canvasWidth - 90));
+        // _redPack.dropLeft = Math.ceil(Math.random() * 3);
+        // switch (_redPack.dropLeft) {
+        //   case 0:
+        //     self.addMoney(Math.random() * 40 + _redPack.canvasWidth / 8);
+        //     break;
+        //   case 1:
+        //     self.addMoney(Math.random() * 40 + _redPack.canvasWidth / 8);
+        //     break;
+        //   case 2:
+        //     self.addMoney(Math.random() * 40 + _redPack.canvasWidth / 8 * 5);
+        //     break;
+        //   case 3:
+        //     self.addMoney(Math.random() * (_redPack.canvasWidth - 90));
+        //     break;
+        //   default:
+        //     self.addMoney(Math.random() * 40 + _redPack.canvasWidth / 8 * 5);
+        //     break;
+        // }
       } else {
         clearInterval(addInterval);
         _redPack.body.clear();      // 动画结束--画布清理
@@ -46,7 +46,7 @@
     }, 250);  // 控制添加红包的密度
   }
   Body.prototype.clear = function () {//清屏  
-    _redPack.context.clearRect(0, 0, _redPack.canvasWidth, _redPack.canvasHeight);
+    _redPack.context.clearRect(0, 0, _redPack.canvasWidth*2, _redPack.canvasHeight*2);
   }
   Body.prototype.addMoney = function (x) {//掉钱
     var random = Math.floor(Math.random() * 4);
